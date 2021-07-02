@@ -1,6 +1,7 @@
 import cv2
 import math
 # hoang dinh? qua'
+# 'hello'
 path = 'degrees.png'
 
 img = cv2.imread(path)
@@ -13,7 +14,8 @@ def mousePoints(event, x, y, flags, params):
     if event == cv2.EVENT_LBUTTONDOWN:
         size = len(pointsList)
         if size != 0 and size % 3 != 0:
-            cv2.line(img, tuple(pointsList[round((size - 1) / 3) * 3]), (x, y), myColor[3], 2)
+            cv2.line(img, tuple(
+                pointsList[round((size - 1) / 3) * 3]), (x, y), myColor[3], 2)
         cv2.circle(img, (x, y), 5, myColor[2], -1)
         # print(x, y)
         pointsList.append([x, y])
@@ -48,9 +50,11 @@ def getAngle(pointsList, image):
     m1 = [pt2[0] - pt1[0], pt2[1] - pt1[1]]
     m2 = [pt3[0] - pt1[0], pt3[1] - pt1[1]]
     # print(m1, m2)
-    angleR = math.acos((m1[0] * m2[0] + m1[1] * m2[1]) / (vector_length(m1) * vector_length(m2)))
+    angleR = math.acos((m1[0] * m2[0] + m1[1] * m2[1]) /
+                       (vector_length(m1) * vector_length(m2)))
     angleD = round(math.degrees(angleR))
-    cv2.putText(image, str(angleD), (pt1[0] - 40, pt1[1] - 20), cv2.FONT_ITALIC, 1.5, (0, 0, 255), 2)
+    cv2.putText(image, str(angleD),
+                (pt1[0] - 40, pt1[1] - 20), cv2.FONT_ITALIC, 1.5, (0, 0, 255), 2)
 
 
 while True:
