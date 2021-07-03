@@ -2,6 +2,7 @@ import cv2
 import math
 # hoang dinh? qua'
 # 'hello'
+# hello helolo thing gioi qua
 path = 'degrees.png'
 
 img = cv2.imread(path)
